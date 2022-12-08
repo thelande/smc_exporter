@@ -1,0 +1,151 @@
+package collector
+
+import (
+	"strings"
+
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/thelande/smc_exporter/smc"
+	"golang.org/x/exp/constraints"
+	"golang.org/x/exp/slices"
+
+	"github.com/go-kit/log"
+	"github.com/go-kit/log/level"
+)
+
+const namespace = "smc"
+
+var labels = []string{"sensor", "label"}
+
+type Numeric interface {
+	constraints.Float | constraints.Integer
+}
+
+// SmcCollector implements the prometheus.Collector interface
+type SmcCollector struct {
+	logger        log.Logger
+	tempMetric    *prometheus.Desc
+	powerMetric   *prometheus.Desc
+	voltageMetric *prometheus.Desc
+	currentMetric *prometheus.Desc
+	fanMetric     *prometheus.Desc
+	batteryMetric *prometheus.Desc
+}
+
+func NewSmcCollector(logger log.Logger) *SmcCollector {
+	return &SmcCollector{
+		logger: logger,
+		tempMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "temp_celsius"),
+			"Apple System Management Control (SMC) monitor for temperature",
+			labels,
+			nil,
+		),
+		powerMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "power_watts"),
+			"Apple System Management Control (SMC) monitor for power",
+			labels,
+			nil,
+		),
+		voltageMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "voltage_volts"),
+			"Apple System Management Control (SMC) monitor for voltage",
+			labels,
+			nil,
+		),
+		currentMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "current_amps"),
+			"Apple System Management Control (SMC) monitor for current",
+			labels,
+			nil,
+		),
+		fanMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "fan_rpms"),
+			"Apple System Management Control (SMC) monitor for fans",
+			labels,
+			nil,
+		),
+		batteryMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "battery_mha"),
+			"Apple System Management Control (SMC) monitor for the battery",
+			labels,
+			nil,
+		),
+	}
+}
+
+// Describe implements the prometheus.Collector interface
+func (s SmcCollector) Describe(ch chan<- *prometheus.Desc) {
+	ch <- s.tempMetric
+	ch <- s.powerMetric
+	ch <- s.voltageMetric
+	ch <- s.currentMetric
+	ch <- s.fanMetric
+	ch <- s.batteryMetric
+}
+
+// Collect implements the prometheus.Collector interface
+func (s SmcCollector) Collect(ch chan<- prometheus.Metric) {
+	keys := smc.GetSMCKeys()
+	fltValues, uintValues, int_values := smc.GetKeyValues(keys)
+	keysSeen := make([]string, 0, len(keys))
+
+	for key, value := range fltValues {
+		if value > 0 {
+			processValue(s, ch, key, &keysSeen, value)
+		}
+	}
+
+	for key, value := range uintValues {
+		if value > 0 {
+			processValue(s, ch, key, &keysSeen, value)
+		}
+	}
+
+	for key, value := range int_values {
+		if value > 0 {
+			processValue(s, ch, key, &keysSeen, value)
+		}
+	}
+}
+
+func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key string, keysSeen *[]string, value T) {
+	label := smc.GetSensorLabel(key)
+	seenKey := strings.ToUpper(key)
+	fltVal := float64(value)
+	if slices.Contains(*keysSeen, seenKey) {
+		level.Warn(s.logger).Log("msg", "duplicate key found", "key", seenKey, "label", label, "value", value)
+	} else if label == "Unknown" {
+		level.Warn(s.logger).Log("msg", "unknown sensor with non-negative value", "key", key, "value", value)
+	} else if key[0] == 'T' {
+		// Temperature sensor
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.tempMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	} else if key[0] == 'P' {
+		// Power sensor
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.powerMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	} else if key[0] == 'V' || key == "B0AV" {
+		if key == "B0AV" && fltVal > 1000 {
+			// Battery voltage may be in mV
+			fltVal /= 1000
+		}
+		// Voltage sensor
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.voltageMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	} else if key[0] == 'I' || key == "B0AC" {
+		if key == "B0AC" && fltVal > 1000 {
+			// Battery current may be in mA
+			fltVal /= 1000
+		}
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.currentMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	} else if key[0] == 'F' {
+		// Fan sensor
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.fanMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	} else if key[0] == 'B' {
+		// Battery sensor
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.batteryMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+	}
+}
