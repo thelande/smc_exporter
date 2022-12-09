@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN
+           http://www.apple.com/DTDs/PropertyList-1.0.dtd >
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.thelande.smc_exporter</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/local/bin/smc_exporter</string>
+            <string>--config.labelsfile-path</string>
+            <string>/usr/local/etc/smc_exporter/sensors.json</string>
+        </array>
+        <key>RunAtBoot</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+    </dict>
+</plist>
