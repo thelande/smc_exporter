@@ -18,8 +18,10 @@ SMCVal_t getKeyValue(const char *inKey) {
 */
 import "C"
 import (
+	"bufio"
 	"encoding/json"
 	"os"
+	"strings"
 	"unsafe"
 )
 
@@ -35,8 +37,7 @@ func GetAllSensorLabels(filename string) map[string][]string {
 	}
 	defer f.Close()
 
-	dec := json.NewDecoder(f)
-	if err := dec.Decode(&labels); err != nil {
+	if err := json.NewDecoder(f).Decode(&labels); err != nil {
 		panic(err)
 	}
 
@@ -47,6 +48,9 @@ func GetSensorLabel(allLabels map[string][]string, key string) string {
 	if labels, ok := allLabels[key]; ok {
 		return labels[0]
 	}
+	// if line, found := CheckForLabel(key); found {
+	// 	fmt.Printf("Found label line for key: %s\n", line)
+	// }
 	return "Unknown"
 }
 
@@ -91,4 +95,26 @@ func GetKeyValues(keys []string) (map[string]float32, map[string]uint, map[strin
 	C.smc_close()
 
 	return fltValues, uintValues, intValues
+}
+
+/*
+ * Checks if the given key exists in the list of all keys. If it does, return
+ * the line it was found in.
+ */
+func CheckForLabel(key string) (string, bool) {
+	f, err := os.Open("sensorkeys.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		line := scanner.Text()
+		if strings.Contains(line, key) {
+			return line, true
+		}
+	}
+
+	return "", false
 }

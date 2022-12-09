@@ -1793,6 +1793,36 @@
 		],
 		"PP0R": [
 			"AC adapter maximum"
+		],
+		"BQX1": [
+			"Battery Cell 1 Absolute Capacity"
+		],
+		"BQX2": [
+			"Battery Cell 2 Absolute Capacity"
+		],
+		"BQX3": [
+			"Battery Cell 3 Absolute Capacity"
+		],
+		"B0TF": [
+			"Battery Average Time to Full"
+		],
+		"BFCL": [
+			"Battery Final Charge Level"
+		],
+		"B0CT": [
+			"Battery Cycle Count"
+		],
+		"BC1V": [
+			"Battery Cell 1 Voltage"
+		],
+		"BC2V": [
+			"Battery Cell 2 Voltage"
+		],
+		"BC3V": [
+			"Battery Cell 3 Voltage"
+		],
+		"CHBV": [
+			"Battery Charging Voltage"
 		]
 	}
 }

@@ -22,14 +22,15 @@ type Numeric interface {
 
 // SmcCollector implements the prometheus.Collector interface
 type SmcCollector struct {
-	logger        log.Logger
-	tempMetric    *prometheus.Desc
-	powerMetric   *prometheus.Desc
-	voltageMetric *prometheus.Desc
-	currentMetric *prometheus.Desc
-	fanMetric     *prometheus.Desc
-	batteryMetric *prometheus.Desc
-	sensorLabels  map[string][]string
+	logger                 log.Logger
+	tempMetric             *prometheus.Desc
+	powerMetric            *prometheus.Desc
+	voltageMetric          *prometheus.Desc
+	currentMetric          *prometheus.Desc
+	fanMetric              *prometheus.Desc
+	batteryChargeMetric    *prometheus.Desc
+	batteryChargePctMetric *prometheus.Desc
+	sensorLabels           map[string][]string
 }
 
 func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCollector {
@@ -66,8 +67,14 @@ func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCo
 			labels,
 			nil,
 		),
-		batteryMetric: prometheus.NewDesc(
-			prometheus.BuildFQName(namespace, "", "battery_mha"),
+		batteryChargeMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "battery_charge_mha"),
+			"Apple System Management Control (SMC) monitor for the battery",
+			labels,
+			nil,
+		),
+		batteryChargePctMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "battery_charge_percent"),
 			"Apple System Management Control (SMC) monitor for the battery",
 			labels,
 			nil,
@@ -82,7 +89,8 @@ func (s SmcCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- s.voltageMetric
 	ch <- s.currentMetric
 	ch <- s.fanMetric
-	ch <- s.batteryMetric
+	ch <- s.batteryChargeMetric
+	ch <- s.batteryChargePctMetric
 }
 
 // Collect implements the prometheus.Collector interface
@@ -114,10 +122,21 @@ func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key st
 	label := smc.GetSensorLabel(s.sensorLabels, key)
 	seenKey := strings.ToUpper(key)
 	fltVal := float64(value)
+
+	batteryVoltageKeys := []string{"B0AV", "BC1V", "BC2V", "BC3V", "CHBV"}
+
 	if slices.Contains(*keysSeen, seenKey) {
-		level.Warn(s.logger).Log("msg", "duplicate key found", "key", seenKey, "label", label, "value", value)
+		level.Debug(s.logger).Log("msg", "duplicate key found", "key", seenKey, "label", label, "value", value)
 	} else if label == "Unknown" {
-		level.Warn(s.logger).Log("msg", "unknown sensor with non-negative value", "key", key, "value", value)
+		level.Debug(s.logger).Log("msg", "unknown sensor with non-negative value", "key", key, "value", value)
+	} else if key == "B0TF" {
+		// Special case: Average battery time to full. Units?
+	} else if key == "B0CT" {
+		// Special case: Battery cycle count. Units: cycles
+	} else if key == "BFCL" {
+		// Special case: Battery Final Charge Level. Units: %
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.batteryChargePctMetric, prometheus.GaugeValue, fltVal, seenKey, label)
 	} else if key[0] == 'T' {
 		// Temperature sensor
 		*keysSeen = append(*keysSeen, seenKey)
@@ -126,8 +145,8 @@ func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key st
 		// Power sensor
 		*keysSeen = append(*keysSeen, seenKey)
 		ch <- prometheus.MustNewConstMetric(s.powerMetric, prometheus.GaugeValue, fltVal, seenKey, label)
-	} else if key[0] == 'V' || key == "B0AV" {
-		if key == "B0AV" && fltVal > 1000 {
+	} else if key[0] == 'V' || slices.Contains(batteryVoltageKeys, key) {
+		if fltVal > 1000 {
 			// Battery voltage may be in mV
 			fltVal /= 1000
 		}
@@ -148,6 +167,6 @@ func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key st
 	} else if key[0] == 'B' {
 		// Battery sensor
 		*keysSeen = append(*keysSeen, seenKey)
-		ch <- prometheus.MustNewConstMetric(s.batteryMetric, prometheus.GaugeValue, fltVal, seenKey, label)
+		ch <- prometheus.MustNewConstMetric(s.batteryChargeMetric, prometheus.GaugeValue, fltVal, seenKey, label)
 	}
 }

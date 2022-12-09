@@ -8,6 +8,7 @@ import (
 
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
+	"golang.org/x/exp/slices"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/collectors"
@@ -22,8 +23,14 @@ import (
 	"github.com/thelande/smc_exporter/smc"
 )
 
+var LOG_LEVELS = []string{"debug", "info", "warn", "error"}
+
 func main() {
 	var (
+		logLevel = kingpin.Flag(
+			"logging.level",
+			"Log level",
+		).Default("info").String()
 		metricsPath = kingpin.Flag(
 			"web.telemetry-path",
 			"Path under which to expose metrics.",
@@ -44,6 +51,11 @@ func main() {
 	kingpin.Parse()
 
 	logger := log.NewLogfmtLogger(log.NewSyncWriter(os.Stderr))
+	if !slices.Contains(LOG_LEVELS, *logLevel) {
+		level.Error(logger).Log("msg", "Invalid log level", "logLevel", *logLevel)
+		os.Exit(1)
+	}
+	logger = level.NewFilter(logger, level.Allow(level.ParseDefault(*logLevel, level.InfoValue())))
 
 	level.Info(logger).Log("msg", "Starting smc_exporter", "version", version.Info())
 	level.Info(logger).Log("msg", "Build context", "build_context", version.BuildContext())
@@ -53,8 +65,6 @@ func main() {
 	runtime.GOMAXPROCS(*maxProcs)
 	level.Debug(logger).Log("msg", "Go MAXPROCS", "procs", runtime.GOMAXPROCS(0))
 
-	// Since we are dealing with custom Collector implementations, it might
-	// be a good idea to try it out with a pedantic registry.
 	reg := prometheus.NewPedanticRegistry()
 
 	// Add the standard process and Go metrics to the custom registry.
