@@ -29,11 +29,13 @@ type SmcCollector struct {
 	currentMetric *prometheus.Desc
 	fanMetric     *prometheus.Desc
 	batteryMetric *prometheus.Desc
+	sensorLabels  map[string][]string
 }
 
-func NewSmcCollector(logger log.Logger) *SmcCollector {
+func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCollector {
 	return &SmcCollector{
-		logger: logger,
+		logger:       logger,
+		sensorLabels: sensorLabels,
 		tempMetric: prometheus.NewDesc(
 			prometheus.BuildFQName(namespace, "", "temp_celsius"),
 			"Apple System Management Control (SMC) monitor for temperature",
@@ -109,7 +111,7 @@ func (s SmcCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key string, keysSeen *[]string, value T) {
-	label := smc.GetSensorLabel(key)
+	label := smc.GetSensorLabel(s.sensorLabels, key)
 	seenKey := strings.ToUpper(key)
 	fltVal := float64(value)
 	if slices.Contains(*keysSeen, seenKey) {

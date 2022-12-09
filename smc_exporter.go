@@ -19,6 +19,7 @@ import (
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
 	"github.com/thelande/smc_exporter/collector"
+	"github.com/thelande/smc_exporter/smc"
 )
 
 func main() {
@@ -30,7 +31,11 @@ func main() {
 		maxProcs = kingpin.Flag(
 			"runtime.gomaxprocs", "The target number of CPUs Go will run on (GOMAXPROCS)",
 		).Envar("GOMAXPROCS").Default("1").Int()
-		toolkitFlags = kingpinflag.AddFlags(kingpin.CommandLine, ":9190")
+		toolkitFlags     = kingpinflag.AddFlags(kingpin.CommandLine, ":9190")
+		sensorLabelsFile = kingpin.Flag(
+			"config.labelsfile-path",
+			"Path to file containing sensor labels",
+		).Default("sensors.json").String()
 	)
 
 	kingpin.Version(version.Print("smc_exporter"))
@@ -58,7 +63,10 @@ func main() {
 		collectors.NewGoCollector(),
 	)
 
-	reg.MustRegister(collector.NewSmcCollector(logger))
+	sensorLabels := smc.GetAllSensorLabels(*sensorLabelsFile)
+	level.Info(logger).Log("msg", "Loaded sensor labels", "count", len(sensorLabels))
+
+	reg.MustRegister(collector.NewSmcCollector(logger, sensorLabels))
 
 	http.Handle(*metricsPath, promhttp.HandlerFor(reg, promhttp.HandlerOpts{}))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

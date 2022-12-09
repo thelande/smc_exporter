@@ -1,0 +1,1798 @@
+{
+	"labels": {
+		"IC0R": [
+			"CPU High Side",
+			"CPU Core High Side",
+			"CPU High Side Average",
+			"Chipset INA Highside",
+			"CPU 1.05V Rail Average",
+			"CPU VCore VTT",
+			"CPU GPU/VCCIO/MEM",
+			"PBUS CPU,GPU,DRAM,V1.0,VccPC",
+			"CPU Computing High Side",
+			"CPU (CPU, I/O)",
+			"CPU",
+			"CPU (Core, CPU, DDR3, 1.05V, System Agent)",
+			"CPU Computing Highside"
+		],
+		"IPBR": [
+			"Charger (BMON)",
+			"Battery PBus",
+			"Battery",
+			"Battery (BMON)",
+			"Battery - BMON",
+			"PBus"
+		],
+		"ID0R": [
+			"DC In Average",
+			"12V S0",
+			"DC In (AMON)",
+			"USBC/MPM Input (AMON)",
+			"DC In Rail",
+			"DC In",
+			"DC I-Sense"
+		],
+		"ICTC": [
+			"Intel GPU"
+		],
+		"PC0R": [
+			"CPU Computing High Side",
+			"PBUS CPU Highside",
+			"CPU Computing Highside",
+			"CPU Highside (PBUS)"
+		],
+		"PCAC": [
+			"CPU Core"
+		],
+		"PCGC": [
+			"Intel GPU"
+		],
+		"PPBR": [
+			"Battery PBus",
+			"Battery Current",
+			"Battery",
+			"Battery (BMON)",
+			"PBus"
+		],
+		"PG0R": [
+			"Radeon High Side",
+			"Radeon GPU Highside"
+		],
+		"Ts0P": [
+			"Palm Rest"
+		],
+		"Ts1P": [
+			"Trackpad Actuator",
+			"Palm Rest 2",
+			"Actuator",
+			"Palm Rest Actuator",
+			"Palm Rest Right"
+		],
+		"TB1T": [
+			"Battery Sensor 1"
+		],
+		"TB2T": [
+			"Battery Sensor 2"
+		],
+		"TPCD": [
+			"PCH Die - Digital",
+			"Platform Controller Hub PECI",
+			"Platform Controller Hub",
+			"Platform Controller Hub Die"
+		],
+		"TC1C": [
+			"CPU Core 2"
+		],
+		"TC2C": [
+			"CPU Core 3"
+		],
+		"TC3C": [
+			"CPU Core 4"
+		],
+		"TC4C": [
+			"CPU Core 5"
+		],
+		"TCGC": [
+			"Intel GPU"
+		],
+		"TCSA": [
+			"CPU System Agent Core",
+			"CPU System Agent Core (PECI)"
+		],
+		"TCXC": [
+			"CPU Core PECI",
+			"CPU Core (PECI)",
+			"CPU Die (PECI)",
+			"CPU PECI",
+			"CPU Core - PECI",
+			"CPU PECI Die",
+			"CPU Die - Digital",
+			"CPU Core"
+		],
+		"TG0D": [
+			"Radeon GPU",
+			"Radeon GPU Die",
+			"GPU Die - Analog",
+			"GeForce GPU Die - Analog",
+			"GPU Die",
+			"GPU Die - Digital",
+			"GPU Heatsink"
+		],
+		"TaLC": [
+			"Airflow Left",
+			"Airflow Left Side",
+			"Air Flow"
+		],
+		"TTLD": [
+			"Left Thunderbolt Die",
+			"Thunderbolt Left Proximity",
+			"Thunderbolt Die Left",
+			"Left Thunderbolt Proximity"
+		],
+		"Th1H": [
+			"Fin Stack Proximity Right",
+			"Left Fin Stack Proximity",
+			"Fin stack Proximity",
+			"Fin Stack Right",
+			"Heat Pipe 1",
+			"HeatPipe Heatsink 1",
+			"Fin Stack",
+			"NB/CPU/GPU Heatpipe 1",
+			"NB/CPU/GPU HeatPipe 1",
+			"Right Fin Stack Proximity",
+			"Right Fin Stack"
+		],
+		"Th2H": [
+			"Left Fin Stack",
+			"Fin Stack Left",
+			"Heat Pipe 2",
+			"Fin Stack Proximity Left",
+			"Left Heat Pipe & Fin Stack Proximity",
+			"Right Fin Stack Proximity"
+		],
+		"TM0P": [
+			"Memory Proximity",
+			"MCP Proximity",
+			"Inlet",
+			"FBDIMM Riser Incoming Air",
+			"DDR3 Proximity",
+			"FBDIMM Riser A Incoming Air",
+			"CPU A DIMM Exit Ambient",
+			"Underneath SODIMM",
+			"Memory",
+			"DRAM Proximity",
+			"5V / 3.3V Proximity"
+		],
+		"TC0P": [
+			"CPU Proximity"
+		],
+		"TG0P": [
+			"GeForce GPU Proximity",
+			"Mezzanine GPU Exhaust",
+			"GPU Proximity",
+			"Radeon GPU Proximity"
+		],
+		"TW0P": [
+			"Airport Peninsula",
+			"Airport Proximity",
+			"AUX",
+			"X29 Proximity",
+			"Wireless Proximity",
+			"Airport",
+			"Wireless Controller IC",
+			"Airport Card"
+		],
+		"TaRC": [
+			"Airflow Right Side",
+			"Airflow Right"
+		],
+		"TTRD": [
+			"Thunderbolt Die Right",
+			"Right Thunderbolt Die",
+			"Thunderbolt Right Proximity",
+			"Right Thunderbolt Proximity"
+		],
+		"TH0A": [
+			"SSD 1"
+		],
+		"TH0B": [
+			"SSD 2"
+		],
+		"TH0C": [
+			"SSD 3"
+		],
+		"TGVP": [
+			"Radeon Memory Proximity",
+			"Radeon GPU VRAM"
+		],
+		"VG2C": [
+			"Radeon VDDCI",
+			"Radeon GPU VDDCI"
+		],
+		"VP0R": [
+			"P-Bus V-Sense",
+			"P-Bus Rail",
+			"PBUS",
+			"PBus",
+			"PBus Rail",
+			"Pbus",
+			"P-Bus",
+			"PBus V-Sense"
+		],
+		"VD0R": [
+			"12V S0",
+			"DC V-Sense",
+			"DC In Rail",
+			"USB/MPM Input",
+			"DC In"
+		],
+		"VCSC": [
+			"CPU System Agent",
+			"CPU SA",
+			"CPU System Agent Core",
+			"CPU VCCSA"
+		],
+		"VCAC": [
+			"CPU IA Core",
+			"CPU IA",
+			"CPU A Core",
+			"CPU-A Core",
+			"CPU A - Core"
+		],
+		"VCTC": [
+			"Radeon GPU Core",
+			"Intel GPU"
+		],
+		"VG0C": [
+			"Radeon GPU Core",
+			"Radeon Core",
+			"GPU Core",
+			"GPU",
+			"GPU VCore",
+			"GPU V-Sense"
+		],
+		"ALSL": [
+			"Ambient Light Sensor",
+			"Ambient Light"
+		],
+		"F0Ac": [
+			"Exhaust",
+			"Left Fan",
+			"Expansion Slots",
+			"CPU 1 Inlet",
+			"Leftside",
+			"Fan",
+			"Optical Drive",
+			"CPU",
+			"Fan 1"
+		],
+		"F1Ac": [
+			"Hard Drive",
+			"Rightside",
+			"Expansion Slots",
+			"Power Supply",
+			"Fan 2",
+			"CPU 1 Outlet",
+			"Right Fan"
+		],
+		"PCPC": [
+			"CPU Package Core (PECI)",
+			"CPU Core",
+			"CPU Package Core"
+		],
+		"PCPG": [
+			"CPU Package GPU",
+			"CPU Package GPU (PECI)",
+			"Intel GPU"
+		],
+		"PCPT": [
+			"CPU Package",
+			"CPU Input",
+			"CPU Package Total",
+			"CPU Package Total (PECI)"
+		],
+		"PSTR": [
+			"Total",
+			"Total Power",
+			"System Total"
+		],
+		"PDTR": [
+			"DC In",
+			"DC In Total"
+		],
+		"IM3C": [
+			"DDR S3"
+		],
+		"IPB1": [
+			"BMON Discrete",
+			"Discrete Battery"
+		],
+		"ISDC": [
+			"SSD 3.3V",
+			"SSD"
+		],
+		"PB1R": [
+			"Discrete BMON"
+		],
+		"PM3C": [
+			"DDR S3"
+		],
+		"PSDC": [
+			"SSD"
+		],
+		"TB0T": [
+			"Battery"
+		],
+		"TCHP": [
+			"Charger Proximity"
+		],
+		"THSP": [
+			"Thunderbolt Proximity",
+			"T29 Proximity",
+			"Platform Controller Hub"
+		],
+		"TS2P": [
+			"Camera Proximity",
+			"S2 Camera Proximity"
+		],
+		"Ta0P": [
+			"Ambient Air",
+			"DC In Proximity Air Flow",
+			"Inlet",
+			"Air Flow Proximity",
+			"Air Flow"
+		],
+		"Tm0P": [
+			"Misc",
+			"Battery Charger Proximity",
+			"DC In Proximity Air Flow",
+			"Inlet",
+			"Palm Rest",
+			"Logic Board Center",
+			"Logic Board Proximity",
+			"Logic Board Top Side"
+		],
+		"TA0P": [
+			"Ambient Air",
+			"Ambient 1",
+			"Chunnel Ambient Left",
+			"Airflow",
+			"Air Flow Proximity",
+			"System Ambient",
+			"Airflow (Fans)",
+			"Ambient",
+			"Incoming Air"
+		],
+		"TA0S": [
+			"PCIE Slot 1 Ambient",
+			"PCI Super Slot Ambient"
+		],
+		"TA1P": [
+			"Airflow (DC-In)",
+			"Chunnel Ambient Right",
+			"Ambient Air",
+			"Ambient 2"
+		],
+		"TA1S": [
+			"PCI Super Slot PCB",
+			"PCIE Slot 1 PCB"
+		],
+		"TA2S": [
+			"PCIE Slot 2 Ambient",
+			"PCIe Half Length Ambient"
+		],
+		"TA3S": [
+			"PCIe Half Length PCB",
+			"PCIE Slot 2 PCB"
+		],
+		"TCAH": [
+			"CPU A - HeatSink",
+			"CPU A HeatSink",
+			"CPU-A Heatsink"
+		],
+		"TCBH": [
+			"CPU-B Heatsink",
+			"CPU B - HeatSink",
+			"CPU B HeatSink",
+			"CPU A HeatSink"
+		],
+		"TH1P": [
+			"Drive Bay 1 (On Carrier)",
+			"Drive Bay 1",
+			"Hard Drive 2 Body"
+		],
+		"TH2P": [
+			"Drive Bay 2 (On Carrier)",
+			"Drive Bay 2",
+			"Hard Drive 3 Body"
+		],
+		"TH3P": [
+			"Drive Bay 3 (On Carrier)",
+			"Drive Bay 3",
+			"Hard Drive 4 Body"
+		],
+		"TN0C": [
+			"MCH Core",
+			"I/O Hub Die",
+			"MCH Die Diode"
+		],
+		"TN0H": [
+			"MCH Heatsink",
+			"MCH HeatSink",
+			"MCP Heatsink",
+			"Northbridge HeatSink",
+			"Northbridge Heatsink",
+			"I/O Hub HeatSink"
+		],
+		"TS0C": [
+			"CPU B DIMM Exit Ambient",
+			"LM94, Between CPU-A and CPU-A's VR",
+			"LM94, between CPU-A and CPU-A's VR",
+			"CPU B PCB"
+		],
+		"Tp0P": [
+			"PSU1 Inlet Ambient",
+			"AC/DC Supply",
+			"Power Supply",
+			"Power Supply Proximity",
+			"AC/DC Proximity",
+			"Logic Board"
+		],
+		"Tp1P": [
+			"PSU1 Primary Component",
+			"Logic Board Front Edge",
+			"Power Board Proximity"
+		],
+		"Tp2P": [
+			"PSU1 Secondary Component"
+		],
+		"Tp3P": [
+			"PSU2 Inlet Ambient"
+		],
+		"Tp4P": [
+			"PSU2 Primary Component",
+			"PSU1 Primary Component"
+		],
+		"Tp5P": [
+			"PSU2 Secondary Component"
+		],
+		"VCBC": [
+			"CPU B - Core",
+			"CPU B Core",
+			"CPU-B Core"
+		],
+		"VS2C": [
+			"Main P12V",
+			"1V5 S0_SB"
+		],
+		"VS8C": [
+			"3V3 S5",
+			"Main P3V3"
+		],
+		"F2Ac": [
+			"Exhaust",
+			"CPU 2 Inlet",
+			"CPU"
+		],
+		"F4Ac": [
+			"CPU 3 Inlet",
+			"Booster 1"
+		],
+		"F6Ac": [
+			"CPU 4 Inlet"
+		],
+		"F8Ac": [
+			"FB-DIMM 1 Inlet"
+		],
+		"FAAc": [
+			"FB-DIMM 2 Inlet"
+		],
+		"FCAc": [
+			"FB-DIMM 3 Inlet"
+		],
+		"F3Ac": [
+			"Power Supply",
+			"CPU 2 Outlet",
+			"Intake"
+		],
+		"F5Ac": [
+			"Booster 2",
+			"CPU 3 Outlet"
+		],
+		"F7Ac": [
+			"CPU 4 Outlet"
+		],
+		"F9Ac": [
+			"FB-DIMM 1 Outlet"
+		],
+		"FBAc": [
+			"FB-DIMM 2 Outlet"
+		],
+		"FDAc": [
+			"FB-DIMM 3 Outlet"
+		],
+		"FEAc": [
+			"Power Supply 1 Inlet"
+		],
+		"FGAc": [
+			"Power Supply 2 Inlet"
+		],
+		"FFAc": [
+			"Power Supply 1 Outlet"
+		],
+		"FHAc": [
+			"Power Supply 2 Outlet"
+		],
+		"VS4C": [
+			"AUX P1V5"
+		],
+		"VSEC": [
+			"FireWire P1V95"
+		],
+		"VSFC": [
+			"AUX P3V3"
+		],
+		"TC1P": [
+			"CPU A Ambient 2",
+			"CPU Proximity"
+		],
+		"TC2P": [
+			"CPU B Ambient 1"
+		],
+		"TC3P": [
+			"CPU B Ambient 2"
+		],
+		"TG0C": [
+			"Mezzanine GPU Core"
+		],
+		"IC0C": [
+			"CPU VCore",
+			"CPU High (CPU, I/O)",
+			"CPU I-Sense",
+			"CPU VCore Average",
+			"CPU",
+			"CPU Core",
+			"CPU Core Low Side"
+		],
+		"IN0R": [
+			"GFX VCore Average",
+			"Northbridge I-Sense",
+			"MCP Core",
+			"Northbridge Rail 0",
+			"Northbridge Rail 1"
+		],
+		"IM0C": [
+			"DD3 1.5V",
+			"Memory Average",
+			"1.2V (CPU & Memory)",
+			"1.2V CPU/Memory",
+			"CPU/Mem",
+			"DDR3 1.5V",
+			"Memory"
+		],
+		"ID1R": [
+			"CPU 1.5V Average"
+		],
+		"IC2C": [
+			"CPU System Agent",
+			"CPU Front Side Bus 1.05V",
+			"CPU Load Current Monitor"
+		],
+		"TC0D": [
+			"CPU T-Diode",
+			"CPU Die - Analog",
+			"CPU Die"
+		],
+		"TP0P": [
+			"Platform Controller Hub",
+			"PCH-Thunderbolt Proximity",
+			"Platform Controller Hub Proximity"
+		],
+		"TI0P": [
+			"IO Proximity",
+			"Thunderbolt Proximity 1",
+			"Thunderbolt Proximity"
+		],
+		"TI1P": [
+			"Thunderbolt Proximity 2"
+		],
+		"Tp0C": [
+			"ACDC",
+			"PSMI Supply AC/DC Supply 1",
+			"PSU Analog",
+			"PSU - AC/DC Supply 1"
+		],
+		"TC0C": [
+			"CPU Core 1"
+		],
+		"IG0C": [
+			"GPU 1 - Core Lowside",
+			"GPU I-Sense",
+			"GPU VCore Average",
+			"Radeon GPU Core",
+			"GPU Core",
+			"GPU",
+			"GPU Core Low Side",
+			"CPU Core"
+		],
+		"IG0R": [
+			"GPU (Core, FB, 1.0V)",
+			"MXM",
+			"GeForce GPU (Core, FB, 1.0V)",
+			"Intel GPU",
+			"GPU High Side Average",
+			"GPU",
+			"GPU Riser 1 - 12V Highside",
+			"Radeon GPU High Side"
+		],
+		"TG1D": [
+			"GeForce GPU Die - Digital",
+			"GPU Die - Digital"
+		],
+		"TG0M": [
+			"GPU Memory"
+		],
+		"VC0C": [
+			"CPU Vcore",
+			"CPU V-Sense",
+			"CPU",
+			"CPU VCore",
+			"CPU Core",
+			"CPU Core Low Side"
+		],
+		"VM0C": [
+			"CPU/Mem"
+		],
+		"IC1C": [
+			"Platform Controller Hub Core",
+			"CPU I/O PP1V05",
+			"CPU Core High Side",
+			"CPU/Platform Controller Hub"
+		],
+		"I50R": [
+			"CPU/Platform Controller Hub"
+		],
+		"IM0R": [
+			"DIMM 1.5 S3",
+			"SoDimm VDD Average",
+			"Memory I-Sense",
+			"DIMM 1.2 S3",
+			"Memory Power",
+			"DIMM 1.5V S3",
+			"DIMM 1.V5 S3",
+			"DIMM",
+			"Memory"
+		],
+		"VC1C": [
+			"1.05V S0",
+			"CPU/Platform Controller Hub"
+		],
+		"V50R": [
+			"5V Low Side"
+		],
+		"II0R": [
+			"Platform Controller Hub"
+		],
+		"IAPC": [
+			"Wireless",
+			"Wi-Fi",
+			"Radeon GPU Core",
+			"Airport"
+		],
+		"IH0R": [
+			"SSD Lowside",
+			"HDD"
+		],
+		"IH1R": [
+			"SSD 3.3V",
+			"SSD"
+		],
+		"Tm0p": [
+			"PSU",
+			"Logic Board Proximity Local Board",
+			"Logic Board PSU Local Board",
+			"Logic Board DIMM Local Board",
+			"Logic Board PSU",
+			"Logic Board proximity",
+			"Logic Board"
+		],
+		"Te0t": [
+			"Thunderbolt Diode",
+			"PCIe Switch Diode"
+		],
+		"TC0p": [
+			"CPU Proximity Board",
+			"CPU Proximity"
+		],
+		"TA0p": [
+			"Ambient Logic Board",
+			"Logic Board Ambient",
+			"Ambient 1",
+			"Ambient 2"
+		],
+		"TW0p": [
+			"Wi-Fi Proximity"
+		],
+		"TA1p": [
+			"Ambient 1",
+			"Ambient 2"
+		],
+		"TM0p": [
+			"Memory Proximity",
+			"Memory",
+			"DIMM 1 - Proximity",
+			"SO-DIMM 1 Proximity Board",
+			"SO-DIMM Proximity Board",
+			"SO-DIMM 1 Proximity",
+			"SO-DIMM 1",
+			"SO-DIMM Proximity"
+		],
+		"TA2p": [
+			"Ambient 3"
+		],
+		"TCXr": [
+			"CPU PECI DTS"
+		],
+		"TC0c": [
+			"CPU Core 1",
+			"CPU Core 1 - DTS",
+			"CPU Core 1 PECI"
+		],
+		"TC1c": [
+			"CPU Core 2",
+			"CPU Core 2 - DTS",
+			"CPU Core 2 PECI"
+		],
+		"TCGc": [
+			"GPU",
+			"Intel GPU"
+		],
+		"TCSc": [
+			"CPU System Agent",
+			"CPU System Agent Core",
+			"CPU System Agent Core PECI"
+		],
+		"TPCd": [
+			"PCH Die Digital"
+		],
+		"TN0D": [
+			"MCH Die Offset",
+			"MCP Die",
+			"Northbridge Tdiode",
+			"Northbridge Die",
+			"MCD Die",
+			"Northbridge Proximity",
+			"I/O Hub Tdiode",
+			"MCP Die Top Side",
+			"CPU VCore"
+		],
+		"TN1D": [
+			"MCP Die Top Side",
+			"MCP Internal Die",
+			"MCP Die"
+		],
+		"TC0H": [
+			"CPU Heatsink"
+		],
+		"TN0P": [
+			"NB Proximity Top Side",
+			"MCP Proximity",
+			"Northbridge Proximity",
+			"MCP Proximity Top Side",
+			"GPU Die",
+			"NB Proximity"
+		],
+		"TH0P": [
+			"HDD 1",
+			"Hard Drive Body",
+			"HDD Case",
+			"Hard Drive Proximity",
+			"HDD Flex Area",
+			"Hard Drive 1 Body"
+		],
+		"TO0P": [
+			"Optical Drive",
+			"Optical Drive Proximity",
+			"Optical/HDD 2"
+		],
+		"IN0C": [
+			"MCP Core",
+			"MCP VCore Average",
+			"MCH Core 0 - Supply Input",
+			"MCH Core - Supply",
+			"MCP VCore",
+			"MCP Core 0",
+			"Intel GPU",
+			"IG GFX VCore",
+			"I/O Hub Core, 1V1 S0 I/O Hub Northbridge",
+			"MCH Core - Supply Input"
+		],
+		"IN1C": [
+			"MCP 1.5V Mem Average",
+			"Northbridge Rail",
+			"MCH Core 1",
+			"MCP Memory"
+		],
+		"IP0R": [
+			"Battery - BMON",
+			"PBus",
+			"PBus Rail",
+			"PBus I-Sense"
+		],
+		"VN0C": [
+			"MPU Core",
+			"MCP Core",
+			"MCH Core",
+			"Intel GPU VCore",
+			"MCP VCore",
+			"GPU",
+			"1V1 S0 I/O Hub Northbridge",
+			"MCH Core 0"
+		],
+		"TN1P": [
+			"NB Proximity",
+			"GPU Die"
+		],
+		"PC0C": [
+			"CPU Package",
+			"CPU Load Side",
+			"CPU Core",
+			"CPU"
+		],
+		"PN0R": [
+			"Northbridge Rail"
+		],
+		"PM0R": [
+			"Memory Rail",
+			"DDR Memory"
+		],
+		"VC2C": [
+			"CPU System Agent"
+		],
+		"VG3C": [
+			"GPU FB"
+		],
+		"IB0R": [
+			"Battery",
+			"Battery - BMON",
+			"Battery Rail"
+		],
+		"IN1R": [
+			"NorthBridge Rail",
+			"Northbridge Rail 1",
+			"Northbridge I-Sense",
+			"Northbridge Rail 2"
+		],
+		"TB3T": [
+			"Battery"
+		],
+		"TG0T": [
+			"GPU Die - Analog",
+			"GPU Discrete Thermal Diode"
+		],
+		"TG0H": [
+			"GPU Heatsink",
+			"Left Heat Pipe/Fin Stack Proximity"
+		],
+		"TG1H": [
+			"Left Heat Pipe/Fin Stack Proximity"
+		],
+		"VN0R": [
+			"MCP VCore"
+		],
+		"IO0R": [
+			"Other (5V, 3.3V)"
+		],
+		"IG1C": [
+			"GPU Core High Side",
+			"GeForce GPU FB",
+			"Radeon GPU Frame Buffer",
+			"GPU I-Sense",
+			"GPU 2 - Core Lowside",
+			"GPU FB",
+			"GPU 1.8V"
+		],
+		"IN2R": [
+			"Northbridge Rail 2"
+		],
+		"TALP": [
+			"Ambient Light Proximity"
+		],
+		"Th0H": [
+			"HeatPipe Heatsink 0",
+			"Heat Pipe 0",
+			"HeatPipe Heatsink",
+			"NB/CPU/GPU Heatpipe 0",
+			"Heat Pipe Heatsink",
+			"NB/CPU/GPU HeatPipe 0"
+		],
+		"VG1C": [
+			"GPU Core High Side",
+			"GPU Core",
+			"Radeon GPU FB"
+		],
+		"IF0R": [
+			"Firewire I-Sense",
+			"Firewire"
+		],
+		"PD0R": [
+			"DC In",
+			"DC In Rail",
+			"USBC/MPM Input"
+		],
+		"PF0R": [
+			"Firewire Rail"
+		],
+		"PG0C": [
+			"GPU Core",
+			"CPU"
+		],
+		"TH0a": [
+			"SSD",
+			"SSD 1"
+		],
+		"TH0b": [
+			"SSD 2"
+		],
+		"Tm1P": [
+			"Inlet",
+			"Logic Board Proximity"
+		],
+		"IB0r": [
+			"Charger Rail"
+		],
+		"IC1R": [
+			"Chipset SMBUS Highside"
+		],
+		"VC1R": [
+			"CPU Highside"
+		],
+		"IC0r": [
+			"CPU Core VTT"
+		],
+		"Ic0R": [
+			"Sensor Rail"
+		],
+		"Th0P": [
+			"CPU Proximity"
+		],
+		"TV0P": [
+			"Air Vent Exit"
+		],
+		"IBAC": [
+			"Battery"
+		],
+		"IPBF": [
+			"Battery Discharge"
+		],
+		"Th0N": [
+			"SSD"
+		],
+		"VACC": [
+			"ACC voltage"
+		],
+		"VCFR": [
+			"FIVR CPU Supply"
+		],
+		"TC5C": [
+			"CPU Core 5"
+		],
+		"TC6C": [
+			"CPU Core 6"
+		],
+		"I18C": [
+			"1.8V"
+		],
+		"IB0L": [
+			"Battery Discrete",
+			"Battery"
+		],
+		"IBLR": [
+			"LCD Backlight",
+			"Display Backlight"
+		],
+		"IBTC": [
+			"Bluetooth"
+		],
+		"ISCC": [
+			"Platform Controller Hub PC",
+			"Platform Controller Hub"
+		],
+		"ICAC": [
+			"CPU IA Core",
+			"CPU-A Core",
+			"CPU A - Core Low Side"
+		],
+		"ICAM": [
+			"CPU IA Core (IMON)"
+		],
+		"ICEC": [
+			"CPU VccEDRAM"
+		],
+		"ICGC": [
+			"Intel GPU"
+		],
+		"ICGM": [
+			"Intel GPU (IMON)"
+		],
+		"ICMC": [
+			"Camera",
+			"S2"
+		],
+		"ICSC": [
+			"CPU VCCSA"
+		],
+		"IHCC": [
+			"SSD 3.3V",
+			"3.3V S5 SSD"
+		],
+		"IHNC": [
+			"SSD NAND",
+			"PBUS NAND",
+			"SSD Memory"
+		],
+		"IKBC": [
+			"Keyboard Backlight"
+		],
+		"ILDC": [
+			"Display",
+			"LCD Panel",
+			"LCD"
+		],
+		"IM1C": [
+			"LPDDR 1.8V",
+			"1.8V Memory"
+		],
+		"IMCC": [
+			"1.2V CPU"
+		],
+		"IO3R": [
+			"Other 3.3V (High)",
+			"Other 3.3V",
+			"3.3V Other"
+		],
+		"IO5R": [
+			"Other 5V",
+			"Other 5V (High)",
+			"5V Other"
+		],
+		"IS1C": [
+			"1.0V Southbridge IO",
+			"Southbridge IO 1.0V",
+			"1V05 S0 SB"
+		],
+		"IT3C": [
+			"Trackpad and Keyboard 3.3V",
+			"Keyboard/Trackpad"
+		],
+		"ITAR": [
+			"Trackpad Actuator"
+		],
+		"IULC": [
+			"Left Thunderbolt",
+			"Thunderbolt Left"
+		],
+		"IURC": [
+			"Right Thunderbolt",
+			"Thunderbolt Right"
+		],
+		"PCAM": [
+			"CPU Core (IMON)"
+		],
+		"PCEC": [
+			"CPU VccEDRAM"
+		],
+		"PCGM": [
+			"Intel GPU (IMON)"
+		],
+		"PCSC": [
+			"CPU VCCSA",
+			"CPU VCCSA Power"
+		],
+		"PHCC": [
+			"SSD 3.3V",
+			"SSD 3.3V S5"
+		],
+		"PHNC": [
+			"SSD NAND",
+			"NAND 2.7V S4",
+			"SSD Memory"
+		],
+		"PM0C": [
+			"Memory 1.2V S3"
+		],
+		"PM1C": [
+			"Memory 1.8V"
+		],
+		"PMCC": [
+			"CPU/Memory 1.2V"
+		],
+		"PO3R": [
+			"3.3V S4"
+		],
+		"PO5R": [
+			"5V S4"
+		],
+		"PS1C": [
+			"Southbridge IO 1.0V"
+		],
+		"PTAR": [
+			"Trackpad Actuator"
+		],
+		"VCGC": [
+			"CPU GT",
+			"CPU Vcc Gfx",
+			"Intel GPU"
+		],
+		"VSCC": [
+			"Southbridge VCC"
+		],
+		"ICS0": [
+			"CPU Core"
+		],
+		"ICS1": [
+			"CPU Load Current Monitor"
+		],
+		"VCS0": [
+			"CPU Core"
+		],
+		"IHDC": [
+			"SSD"
+		],
+		"IC3C": [
+			"CPU DDR"
+		],
+		"IBLC": [
+			"LCD Backlight"
+		],
+		"IHSC": [
+			"Thunderbolt"
+		],
+		"TC0F": [
+			"CPU Die PECI",
+			"CPU Die (PECI)",
+			"CPU PECI Die"
+		],
+		"Ts0S": [
+			"Skin",
+			"Bottom Skin"
+		],
+		"IH1Z": [
+			"HDD1, 12V",
+			"HDD1 12V"
+		],
+		"IH2Z": [
+			"HDD2, 12V",
+			"HDD2 12V"
+		],
+		"IH3Z": [
+			"HDD3 12V",
+			"HDD3, 12V"
+		],
+		"IH4Z": [
+			"HDD4, 12V",
+			"HDD4 12V"
+		],
+		"IH5Z": [
+			"HDD+ODD, 5V",
+			"HDD+ODD 5V"
+		],
+		"IO0Z": [
+			"ODD 12V"
+		],
+		"Ie1S": [
+			"PCIe Slot 1 12V",
+			"PCIe Slot 1 +12V"
+		],
+		"Ie2S": [
+			"PCIe Slot 2 +12V",
+			"PCIe Slot 2 12V"
+		],
+		"Ie3S": [
+			"PCIe Slot 3 12V",
+			"PCIe Slot 3 +12V"
+		],
+		"Ie4S": [
+			"PCIe Slot 4 +12V",
+			"PCIe Slot 4 12V"
+		],
+		"IeAS": [
+			"PCIe BoostA 12V",
+			"PCIe Boost A 12V",
+			"PCIe Slot Boost 1 +12V"
+		],
+		"IeBS": [
+			"PCIe Boost B 12V",
+			"PCIe Slot Boost 2 +12V",
+			"PCIe BoostB 12V"
+		],
+		"Ip0C": [
+			"PSMI Supply AC/DC Output, +12V Rail",
+			"PSU 12V (PSMI)",
+			"PSU, 12V",
+			"PSMI Supply AC/DC Total Output, +12V rail"
+		],
+		"TCAC": [
+			"CPU A - Relative to ProcHot"
+		],
+		"TCAD": [
+			"CPU A - Tdiode"
+		],
+		"TCBC": [
+			"CPU B - Relative to ProcHot"
+		],
+		"TCBD": [
+			"CPU B - Tdiode"
+		],
+		"TH4P": [
+			"Drive Bay 4 (On Carrier)"
+		],
+		"TM1P": [
+			"DIMM Proximity 1 (On Riser)",
+			"FBDIMM Riser A Outgoing Air"
+		],
+		"TM2P": [
+			"FBDIMM Riser A Voltage Regulator Area",
+			"DIMM Proximity 2 (On Riser)",
+			"FBDIMM Riser A VR area",
+			"FBDIMM Riser A VR Area"
+		],
+		"TM3P": [
+			"DIMM Proximity 3 (On Riser)"
+		],
+		"TM4P": [
+			"DIMM Proximity 4 (On Riser)"
+		],
+		"TM5P": [
+			"DIMM Proximity 5 (On Riser)"
+		],
+		"TM6P": [
+			"DIMM Proximity 6 (On Riser)"
+		],
+		"TM7P": [
+			"DIMM Proximity 7 (On Riser)"
+		],
+		"TM8P": [
+			"DIMM Proximity 8 (On Riser)",
+			"FBDIMM Riser B Incoming Air"
+		],
+		"TMA1": [
+			"DIMM, CPUA, SLOT1, CHA - SPD",
+			"DIMM, CPUA, SLOT1, CHA SPD"
+		],
+		"TMA2": [
+			"DIMM, CPUA, SLOT2, CHB SPD",
+			"DIMM, CPUA, SLOT2"
+		],
+		"TMA3": [
+			"DIMM, CPUA, SLOT3, CHC SPD",
+			"DIMM, CPUA, SLOT3"
+		],
+		"TMA4": [
+			"DIMM, CPUA, SLOT4",
+			"DIMM, CPUA, SLOT4, CHC SPD"
+		],
+		"TMB1": [
+			"DIMM, CPUB, SLOT5, CHA SPD",
+			"DIMM, CPUB, SLOT5"
+		],
+		"TMB2": [
+			"DIMM, CPUB, SLOT6",
+			"DIMM, CPUB, SLOT6, CHB SPD"
+		],
+		"TMB3": [
+			"DIMM, CPUB, SLOT7",
+			"DIMM, CPUB, SLOT7, CHC SPD"
+		],
+		"TMB4": [
+			"DIMM, CPUB, SLOT8",
+			"DIMM, CPUB, SLOT8, CHC SPD"
+		],
+		"Te1S": [
+			"PCIE slot 1",
+			"PCIE Slot 1"
+		],
+		"Te2S": [
+			"PCIE Slot 2",
+			"PCIE slot 2"
+		],
+		"Te3S": [
+			"PCIE Slot 3",
+			"PCIE slot 3"
+		],
+		"Te4S": [
+			"PCIE Slot 4",
+			"PCIE slot 4"
+		],
+		"Te5S": [
+			"PCIE slot 5",
+			"PCIE RAID card"
+		],
+		"Tp1C": [
+			"PSMI Supply AC/DC Supply 2",
+			"PSU - AC/DC Supply 2"
+		],
+		"ICBC": [
+			"CPU B - Core Low Side",
+			"CPU-B Core"
+		],
+		"IMAS": [
+			"FBDIMM Riser A 12V Supply",
+			"DIMM, PP1V5_S3_MEMA",
+			"FBDIMM Riser A 12V"
+		],
+		"IMBS": [
+			"FBDIMM Riser B 12V",
+			"DIMM, PP1V5_S3_MEMB",
+			"FBDIMM Riser B 12V Supply"
+		],
+		"ICAB": [
+			"CPU A - VTT"
+		],
+		"ICBB": [
+			"CPU B - VTT"
+		],
+		"IS2C": [
+			"1V5 S0 SB"
+		],
+		"Ip1M": [
+			"12V S0 CPUA 240V"
+		],
+		"Ip2M": [
+			"12V S0 CPUB 240V"
+		],
+		"Ip3M": [
+			"12V S0 MEMA 240V"
+		],
+		"Ip4M": [
+			"12V S0 MEMB 240V"
+		],
+		"Ip5M": [
+			"12V S0 MLB1 240V A"
+		],
+		"Ip6M": [
+			"12V S0 MLB2 240V A"
+		],
+		"Ip7M": [
+			"12V S0 PCIE1 240V A"
+		],
+		"Ip8M": [
+			"12V S0 PCIE2 240V A"
+		],
+		"Ve1S": [
+			"PCIe Slot 1, 12V"
+		],
+		"Ve2S": [
+			"PCIe Slot 2, 12V"
+		],
+		"Ve3S": [
+			"PCIe Slot 3, 12V"
+		],
+		"Ve4S": [
+			"PCIe Slot 4, 12V"
+		],
+		"VeAS": [
+			"PCIe BoostA, 12V"
+		],
+		"VeBS": [
+			"PCIe BoostB, 12V"
+		],
+		"VH1Z": [
+			"HDD1, 12V"
+		],
+		"VH2Z": [
+			"HDD2, 12V"
+		],
+		"VH3Z": [
+			"HDD3, 12V"
+		],
+		"VH4Z": [
+			"HDD4, 12V"
+		],
+		"VO0Z": [
+			"ODD, 12V"
+		],
+		"VH5Z": [
+			"HDD+ODD, 5V"
+		],
+		"VM1S": [
+			"1V5 S3 MEMA"
+		],
+		"VM2S": [
+			"1V5 S3 MEMB"
+		],
+		"Vp0C": [
+			"PSMI Supply AC/DC output +12V Rail",
+			"PSU, 12V",
+			"PSMI Supply AC/DC Output, +12V rail",
+			"PSMI Supply AC/DC Output +12V rail"
+		],
+		"VCAB": [
+			"CPU A - VTT S0"
+		],
+		"VCBB": [
+			"CPU B - VTT S0"
+		],
+		"VS1C": [
+			"1V05 S0 SB"
+		],
+		"TM0S": [
+			"AMB IC on FBDIMM in Riser A Slot 1"
+		],
+		"TM1S": [
+			"AMB IC on FBDIMM in Riser A Slot 2"
+		],
+		"TM9P": [
+			"FBDIMM Riser B Outgoing Air"
+		],
+		"TMAP": [
+			"FBDIMM Riser B Voltage Regulator Area",
+			"FBDIMM Riser B VR Area"
+		],
+		"VMAS": [
+			"FBDIMM Riser A +12V Rail"
+		],
+		"VMBS": [
+			"FBDIMM Riser B +12V Rail"
+		],
+		"VN1C": [
+			"MCH Core 1"
+		],
+		"VeES": [
+			"PCIe Slots +12V Rail"
+		],
+		"TM8S": [
+			"AMB IC on FBDIMM in Riser B Slot 1"
+		],
+		"TM9S": [
+			"AMB IC on FBDIMM in Riser B Slot 2"
+		],
+		"IG0S": [
+			"GPU 1 - VDDCI Lowside"
+		],
+		"IG1R": [
+			"GPU Riser 2 - 12V Highside"
+		],
+		"IG1S": [
+			"GPU 2 - VDDCI Lowside"
+		],
+		"TC1p": [
+			"CPU VCC VR Proximity"
+		],
+		"TG0d": [
+			"GPU",
+			"GPU 1 - Die",
+			"GPU Die"
+		],
+		"TG0p": [
+			"GPU 1 - Local",
+			"GPU Proximity"
+		],
+		"TG0r": [
+			"GPU 1 - VR Proximity"
+		],
+		"TG1d": [
+			"GPU 2 - Die"
+		],
+		"TG1p": [
+			"GPU 2 - Local"
+		],
+		"TG1r": [
+			"GPU 2 - VR Proximity"
+		],
+		"TI0p": [
+			"I/O Board Proximity",
+			"Thunderbolt Die",
+			"TBT Die",
+			"Thunderbolt Proximity"
+		],
+		"TI1p": [
+			"5V/3.3V VR Proximity"
+		],
+		"TM0r": [
+			"DIMM 1 - VR Proximity"
+		],
+		"TM1p": [
+			"SO-DIMM 2 Proximity Board",
+			"DIMM 2 - Proximity",
+			"Memory Proximity 2",
+			"SO-DIMM 2",
+			"SO-DIMM 2 Proximity"
+		],
+		"TM1r": [
+			"DIMM 2 - VR Proximity"
+		],
+		"Tp0t": [
+			"PSU Secondary Heatsink"
+		],
+		"PGTR": [
+			"GPU",
+			"GPU Total",
+			"GPU package",
+			"GPU Package"
+		],
+		"TCXc": [
+			"CPU"
+		],
+		"IG2C": [
+			"Radeon GPU VDDCI"
+		],
+		"ITPC": [
+			"Trackpad Actuator"
+		],
+		"ICTM": [
+			"Intel GPU (IMON)"
+		],
+		"IG3C": [
+			"Radeon GPU 1.8V"
+		],
+		"IG4C": [
+			"Radeon GPU Frame Buffer IC"
+		],
+		"PCPR": [
+			"CPU Package",
+			"CPU Package Total",
+			"CPU"
+		],
+		"TL0p": [
+			"LCD Flying Lead",
+			"LCD Proximity",
+			"LCD"
+		],
+		"TL1p": [
+			"Timing Controller",
+			"Timing Controller BOard"
+		],
+		"Tp2h": [
+			"AC/DC T2 Sec heatsink",
+			"Power Supply Heatsink",
+			"AC/DC T2 (Secondary Heatsink)",
+			"AC/DC T2 Sec Heatsink"
+		],
+		"Tb0p": [
+			"BLC Proximity Board",
+			"BLC Proximity"
+		],
+		"Tm2p": [
+			"CPU Backside",
+			"CPU backside",
+			"Logic Board Proximity"
+		],
+		"TM2p": [
+			"SO-DIMM 3 Proximity Board",
+			"SO-DIMM 3 Proximity",
+			"SO-DIMM 3",
+			"Memory Proximity 3"
+		],
+		"TM3p": [
+			"SO-DIMM 4",
+			"SO-DIMM 4 Proximity Board",
+			"SO-DIMM 4 Proximity",
+			"Memory Proximity 4"
+		],
+		"Tm1p": [
+			"Logic Board Proximity (CPU)",
+			"Logic Board GPU",
+			"Logic Board GPU Local Board",
+			"GPU Local Board"
+		],
+		"TC2c": [
+			"CPU Core 3 - DTS",
+			"CPU Core 3"
+		],
+		"TC3c": [
+			"CPU Core 4 - DTS",
+			"CPU Core 4"
+		],
+		"TS0V": [
+			"Skin"
+		],
+		"VG0F": [
+			"GPU FB",
+			"GPU Frame Buffer"
+		],
+		"VC0M": [
+			"CPU MEM 1.5V",
+			"CPU Memory 1.2V"
+		],
+		"VD2R": [
+			"AC/DC 12V G3H"
+		],
+		"VM0R": [
+			"DIMM 1.5V S3",
+			"DIMM 1.2 S3",
+			"DIMM 1.5 S3",
+			"DIMM"
+		],
+		"VR3R": [
+			"Voltage Regulator 3.3V"
+		],
+		"VH05": [
+			"3.5 HDD 5V",
+			"HDD 5V"
+		],
+		"VR1R": [
+			"1.05V S0"
+		],
+		"VH1R": [
+			"SSD 3.3V",
+			"SSD",
+			"SSD Load Side"
+		],
+		"ID2R": [
+			"AC/DC 12V G3H"
+		],
+		"IG1F": [
+			"GPU Frame Input Average",
+			"GPU Frame Buffer"
+		],
+		"IH05": [
+			"3.5 HDD 5V",
+			"HDD 5V"
+		],
+		"IH02": [
+			"HDD 12V",
+			"3.5 HDD 12V"
+		],
+		"IC20": [
+			"CPU Core, GPU, SA, IO",
+			"CPU Core, GT, SA, IO"
+		],
+		"TH1R": [
+			"SSD"
+		],
+		"IC0M": [
+			"CPU MEM 1.5V",
+			"CPU Memory 1.5V",
+			"CPU Memory 1.2V"
+		],
+		"IG0F": [
+			"GPU FB 1.5V High Side",
+			"GPU FB 1.5V"
+		],
+		"TL0P": [
+			"LCD Proximity"
+		],
+		"ID5R": [
+			"12V S5"
+		],
+		"VD5R": [
+			"12V S5"
+		],
+		"IC0G": [
+			"GPU Core",
+			"CPU Graphics",
+			"Intel GPU"
+		],
+		"IDS2": [
+			"AC/DC"
+		],
+		"PDS2": [
+			"AC/DC"
+		],
+		"TH0O": [
+			"Hard Drive Proximity"
+		],
+		"Tp2H": [
+			"Power Secondary Heatsink"
+		],
+		"Tp3H": [
+			"Power Primary Heatsink"
+		],
+		"TS0p": [
+			"Skin Upper Right"
+		],
+		"TS2p": [
+			"Skin",
+			"Skin Upper Left"
+		],
+		"VDSR": [
+			"AC/DC Shunt"
+		],
+		"ICVR": [
+			"CPU VTT"
+		],
+		"IDSR": [
+			"AC/DC"
+		],
+		"PDSR": [
+			"AC/DC"
+		],
+		"VCVR": [
+			"CPU VTT"
+		],
+		"VC8R": [
+			"CPU 1.8V S0"
+		],
+		"VDPr": [
+			"AC/DC"
+		],
+		"VG0R": [
+			"MXM"
+		],
+		"VDPR": [
+			"AC/DC Voltage"
+		],
+		"TC0E": [
+			"CPU Die PECI"
+		],
+		"IR13": [
+			"DIMM"
+		],
+		"VC0G": [
+			"Intel GPU"
+		],
+		"IC0S": [
+			"CPU System Agent"
+		],
+		"IC0E": [
+			"CPU EDRAM"
+		],
+		"IC0P": [
+			"CPU Platform Controller Hub"
+		],
+		"IR54": [
+			"SSD 3.3V",
+			"5V S4"
+		],
+		"IR35": [
+			"3.3v S5 Load Side",
+			"3.3V S5"
+		],
+		"VR35": [
+			"3.3v S5 Load Side",
+			"Voltage Regulator 3.3V"
+		],
+		"VR54": [
+			"5V S4 load-side"
+		],
+		"TC4c": [
+			"CPU Core 5"
+		],
+		"TC5c": [
+			"CPU Core 6"
+		],
+		"TC6c": [
+			"CPU Core 7"
+		],
+		"TC7c": [
+			"CPU Core 8"
+		],
+		"PHSC": [
+			"Thunderbolt"
+		],
+		"PBLC": [
+			"Backlight"
+		],
+		"PCMC": [
+			"Camera"
+		],
+		"PLDC": [
+			"LCD Panel"
+		],
+		"BQX3": [
+			"Battery design capacity"
+		],
+		"B0FC": [
+			"Battery full charge capacity"
+		],
+		"B0RM": [
+			"Battery remain capacity"
+		],
+		"B0AV": [
+			"Battery Actual Voltage"
+		],
+		"B0AC": [
+			"Battery Actual Current"
+		],
+		"F0Mx": [
+			"Fan maximum"
+		],
+		"F0Mn": [
+			"Fan minimum"
+		],
+		"PP0R": [
+			"AC adapter maximum"
+		]
+	}
+}
