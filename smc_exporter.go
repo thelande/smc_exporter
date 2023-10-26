@@ -16,8 +16,8 @@ import (
 	"github.com/prometheus/exporter-toolkit/web"
 	"github.com/prometheus/exporter-toolkit/web/kingpinflag"
 
+	kingpin "github.com/alecthomas/kingpin/v2"
 	"github.com/prometheus/common/version"
-	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
 	"github.com/thelande/smc_exporter/collector"
 	"github.com/thelande/smc_exporter/smc"
