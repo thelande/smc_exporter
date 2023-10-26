@@ -1,12 +1,14 @@
 package collector
 
 import (
+	"bytes"
 	"strings"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/thelande/smc_exporter/smc"
 	"golang.org/x/exp/constraints"
 	"golang.org/x/exp/slices"
+	"golang.org/x/sys/unix"
 
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
@@ -32,6 +34,7 @@ type SmcCollector struct {
 	batteryChargePctMetric    *prometheus.Desc
 	batteryCyclesMetric       *prometheus.Desc
 	batteryChargeRemainMetric *prometheus.Desc
+	info                      *prometheus.Desc
 	sensorLabels              map[string][]string
 }
 
@@ -93,6 +96,18 @@ func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCo
 			labels,
 			nil,
 		),
+		info: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "uname", "info"),
+			"Labeled system information as provided by the uname system call.",
+			[]string{
+				"sysname",
+				"release",
+				"version",
+				"machine",
+				"nodename",
+			},
+			nil,
+		),
 	}
 }
 
@@ -107,6 +122,25 @@ func (s SmcCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- s.batteryChargePctMetric
 	ch <- s.batteryCyclesMetric
 	ch <- s.batteryChargeRemainMetric
+	ch <- s.info
+}
+
+func (s *SmcCollector) getInfoMetric() (*prometheus.Metric, error) {
+	uname := unix.Utsname{}
+	if err := unix.Uname(&uname); err != nil {
+		level.Error(s.logger).Log("Failed to get uname", "err", err)
+		return nil, err
+	}
+
+	metric := prometheus.MustNewConstMetric(
+		s.info, prometheus.GaugeValue, 1,
+		string(uname.Sysname[:bytes.IndexByte(uname.Sysname[:], 0)]),
+		string(uname.Release[:bytes.IndexByte(uname.Release[:], 0)]),
+		string(uname.Version[:bytes.IndexByte(uname.Version[:], 0)]),
+		string(uname.Machine[:bytes.IndexByte(uname.Machine[:], 0)]),
+		string(uname.Nodename[:bytes.IndexByte(uname.Nodename[:], 0)]),
+	)
+	return &metric, nil
 }
 
 // Collect implements the prometheus.Collector interface
@@ -131,6 +165,10 @@ func (s SmcCollector) Collect(ch chan<- prometheus.Metric) {
 		if value > 0 {
 			processValue(s, ch, key, &keysSeen, value)
 		}
+	}
+
+	if info, err := s.getInfoMetric(); err == nil {
+		ch <- *info
 	}
 }
 
