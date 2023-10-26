@@ -22,15 +22,17 @@ type Numeric interface {
 
 // SmcCollector implements the prometheus.Collector interface
 type SmcCollector struct {
-	logger                 log.Logger
-	tempMetric             *prometheus.Desc
-	powerMetric            *prometheus.Desc
-	voltageMetric          *prometheus.Desc
-	currentMetric          *prometheus.Desc
-	fanMetric              *prometheus.Desc
-	batteryChargeMetric    *prometheus.Desc
-	batteryChargePctMetric *prometheus.Desc
-	sensorLabels           map[string][]string
+	logger                    log.Logger
+	tempMetric                *prometheus.Desc
+	powerMetric               *prometheus.Desc
+	voltageMetric             *prometheus.Desc
+	currentMetric             *prometheus.Desc
+	fanMetric                 *prometheus.Desc
+	batteryChargeMetric       *prometheus.Desc
+	batteryChargePctMetric    *prometheus.Desc
+	batteryCyclesMetric       *prometheus.Desc
+	batteryChargeRemainMetric *prometheus.Desc
+	sensorLabels              map[string][]string
 }
 
 func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCollector {
@@ -79,6 +81,18 @@ func NewSmcCollector(logger log.Logger, sensorLabels map[string][]string) *SmcCo
 			labels,
 			nil,
 		),
+		batteryCyclesMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "battery_cycles"),
+			"Apple System Management Control (SMC) monitor for the battery",
+			labels,
+			nil,
+		),
+		batteryChargeRemainMetric: prometheus.NewDesc(
+			prometheus.BuildFQName(namespace, "", "battery_charge_secs"),
+			"Apple System Management Control (SMC) monitor for the battery",
+			labels,
+			nil,
+		),
 	}
 }
 
@@ -91,6 +105,8 @@ func (s SmcCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- s.fanMetric
 	ch <- s.batteryChargeMetric
 	ch <- s.batteryChargePctMetric
+	ch <- s.batteryCyclesMetric
+	ch <- s.batteryChargeRemainMetric
 }
 
 // Collect implements the prometheus.Collector interface
@@ -131,8 +147,16 @@ func processValue[T Numeric](s SmcCollector, ch chan<- prometheus.Metric, key st
 		level.Debug(s.logger).Log("msg", "unknown sensor with non-negative value", "key", key, "value", value)
 	} else if key == "B0TF" {
 		// Special case: Average battery time to full. Units?
+		*keysSeen = append(*keysSeen, seenKey)
+		if fltVal == 0xffff {
+			// 0xffff means fully charged
+			fltVal = 0
+		}
+		ch <- prometheus.MustNewConstMetric(s.batteryChargeRemainMetric, prometheus.GaugeValue, fltVal, seenKey, label)
 	} else if key == "B0CT" {
 		// Special case: Battery cycle count. Units: cycles
+		*keysSeen = append(*keysSeen, seenKey)
+		ch <- prometheus.MustNewConstMetric(s.batteryCyclesMetric, prometheus.CounterValue, fltVal, seenKey, label)
 	} else if key == "BFCL" {
 		// Special case: Battery Final Charge Level. Units: %
 		*keysSeen = append(*keysSeen, seenKey)
